@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=ű, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <script src="javascripts/index.js"></script>
+    <title>ClickyGaem</title>
+</head>
+<body>
+    <div class="container">
+        <div id="left">
+            <div id="title">
+                <h1>Kool-AH-Clicker</h1>
+            </div>
+            <hr>
+            <div id="imgContainer">
+                <img src="images/poop-emoji-kicsi.png" alt="">
+            </div>
+            <hr>
+            <div id="scoreContainer">
+                <h1 id="score">0</h1>
+            </div>
+            <hr>
+            <div id="btnContainer">
+                <div id="button" onclick="pressed()">
+                    <img src="images/poop-emoji-kicsi.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="rightHeader">
+                <nav>
+                    <button onclick="boostsPressed()">Boosts</button>
+                    <button onclick="helpPressed()">Help</button>
+                    <button onclick="aboutPressed()">About</button>
+                    <button onclick="contactsPressed()">Contacts</button>
+                </nav>
+                <div id="activityContainer">
+                    <div class="boostRecord">
+                        <div class="boostImgContainer">
+                            <img src="images/poop-emoji-kicsi.png" alt="">
+                        </div>
+                        <p class="boostDescription">
+                            Increase the score gained by clicks. (X2)
+                        </p>
+                        <div class="boostBtnContainer">
+                            <button class="button" id="boostClickButton" onclick="boostClickPressed()" disabled>
+                                5000
+                                <img class="coinIcon" src="images/coin.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="boostRecord">
+                        <div class="boostImgContainer">
+                            <img src="images/rabbit.png" alt="">
+                        </div>
+                        <p class="boostDescription">
+                            Increase the score gained by rabbits. (X2)
+                        </p>
+                        <div class="boostBtnContainer">
+                            <button class="button" id="boostRabbitButton" onclick="boostRabbitPressed()" disabled>
+                                20000
+                                <img class="coinIcon" src="images/coin.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="recordContainer">
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="record">
+                    <div class="iconContainer">
+                        <img src="images/rabbit.png" alt="Rabbit">
+                    </div>
+                    <p id="rabbitCount">0</p>
+                    <div id="rabbitElements" class="elements"></div>
+                    <div class="btnContainer">
+                        <button class="button" id="rabbitButton" onclick="rabbitPressed()" disabled>
+                            20
+                            <img class="coinIcon" src="images/coin.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</body>
+</html>

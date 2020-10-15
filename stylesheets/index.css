@@ -1,0 +1,267 @@
+:root {
+    --color-bg:  rgb(226, 187, 161);
+    --color-primary: rgb(204, 126, 74);
+    --color-secondary: rgb(155, 83, 35);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#left {
+    width: 30%;
+    display: block;
+    background-color: var(--color-bg);
+}
+
+#title {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    background-color: var(--color-primary);
+}
+
+#imgContainer {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#scoreContainer {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+#btnContainer {
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+}
+
+#button {
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    background-color: var(--color-primary);
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    transition: .5s;
+}
+
+#button > img {
+    height: 15%;
+    width: 15%;
+}
+
+#button:hover {
+    transition: .5s;
+    background-color: var(--color-secondary);
+    cursor: pointer;
+}
+
+#button:active {
+    background-color: var(--color-primary);
+    transform: translateY(20px);
+}
+
+#right {
+    width: 70%;
+    display: block;
+}
+
+#rightHeader {
+    height: 20%;
+    background-color: var(--color-bg);
+    display: block;
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+}
+
+nav {
+    width: 100%;
+    height: 20%;
+    display: flex;
+}
+
+nav button {
+    width: 25%;
+    background-color: var(--color-secondary);
+    font-size: x-large;
+    color: lightgrey;
+    transition: .3s;
+}
+
+nav button:hover {
+    background-color: var(--color-primary);
+    cursor: pointer;
+}
+
+#activityContainer {
+    display: block;
+    height: 80%;
+    overflow: scroll;
+}
+
+.boostRecord {
+    display: flex;
+    padding-left: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.boostImgContainer {
+    width: 5%;
+    text-align: center;
+}
+
+.boostImgContainer > img {
+    height: 40px;
+    width: 40px;
+    padding-right: 10px;
+}
+
+.boostDescription {
+    padding-left: 10px;
+    font-size: x-large;
+    height: 100%;
+    width: 75%;
+    margin: 0;
+    border-left: 1px solid #000;
+}
+
+.boostBtnContainer {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#recordContainer {
+    height: 80%;
+    overflow: scroll;
+}
+
+.record {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: lightgrey;
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+}
+
+.record > * {
+    border-right: 1px solid black;
+}
+
+.iconContainer {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.iconContainer > img{
+    height: 60px;
+    width: 60px;
+}
+
+.record > p {
+    font-size: xx-large;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elements {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow-y: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.elementIcon {
+    height: 30px;
+    width: 30px;
+}
+
+.btnContainer {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    float: right;
+  }
+  
+.button:hover {
+    background-color: var(--color-secondary)
+}
+  
+.button:active {
+    background-color: var(--color-primary);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.coinIcon {
+    height: 40px;
+    width: 40px;
+    padding-left: 10px;
+}
+
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #808080;
+  color: #c0c0c0;
+}
