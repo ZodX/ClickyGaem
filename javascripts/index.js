@@ -1,76 +1,73 @@
 var score = 19998;
-var rabbitCount = 0;
-var req_rabbit = 20;
-var req_boostRabbit = 20000;
-var multiple_rabbit = 1;
-var click_val = 1;
-var req_clickVal = 5000;
+
+var needs = {'click_val': 1, 'req_clickVal': 5000,
+            'rabbitCount': 0, 'req_rabbit': 20, 'req_boostRabbit': 20000, 'multiple_rabbit': 1}
 
 window.setInterval(function(){
-    if (score < req_rabbit) {
+    if (score < needs['req_rabbit']) {
         document.getElementById("rabbitButton").disabled = true;
     }
     else {
         document.getElementById("rabbitButton").disabled = false;
     }
 
-    if (score < req_boostRabbit) {
+    if (score < needs['req_boostRabbit']) {
         document.getElementById("boostRabbitButton").disabled = true;
     }
     else {
         document.getElementById("boostRabbitButton").disabled = false;
     }
 
-    if (score < req_clickVal) {
+    if (score < needs['req_clickVal']) {
         document.getElementById("boostClickButton").disabled = true;
     }
     else {
         document.getElementById("boostClickButton").disabled = false;
     }
 
-    score += parseInt(parseInt(rabbitCount) * multiple_rabbit);
+    score += parseInt(parseInt(needs['rabbitCount']) * needs['multiple_rabbit']);
     document.getElementById("score").innerHTML = score;  
 }, 1000);
 
 function pressed() {
-    score += click_val;
+    score += needs['click_val'];
     document.getElementById("score").innerHTML = score;
 }
 
 function rabbitPressed() {
-    if (score >= req_rabbit) {
-        document.getElementById("rabbitCount").innerHTML = ++rabbitCount;
+    if (score >= needs['req_rabbit']) {
+        document.getElementById("rabbitCount").innerHTML = ++needs['rabbitCount'];
         document.getElementById("rabbitElements").innerHTML += `
         <img class="elementIcon" src="images/rabbit.png" alt="Rabbit" style="color: rgb(155, 83, 35)">
         `;
-        score -= req_rabbit;
-        req_rabbit = Math.round(req_rabbit * 1.12);
+        score -= needs['req_rabbit'];
+        req_rabbit = Math.round(needs['req_rabbit'] * 1.12);
         document.getElementById("rabbitButton").innerHTML = `
-        ${req_rabbit}
+        ${needs['req_rabbit']}
         <img class="coinIcon" src="images/coin.png" alt="">
         `;
     }
 }
 
 function boostClickPressed() {
-    if (score >= req_clickVal) {
-        click_val *= 2;
-        score -= req_clickVal;
-        req_clickVal *= 10;
+    if (score >= needs['req_clickVal']) {
+        needs['click_val'] *= 2;
+        score -= needs['req_clickVal'];
+        needs['req_clickVal'] *= 10;
         document.getElementById("boostClickButton").innerHTML = `
-        ${req_clickVal}
+        ${needs['req_clickVal']}
         <img class="coinIcon" src="images/coin.png" alt="">
         `;
     }
 }
 
 function boostRabbitPressed() {
-    if (score >= req_boostRabbit) {
-        multiple_rabbit++;
-        score -= req_boostRabbit;
-        req_boostRabbit *= 10;
+    if (score >= needs['req_boostRabbit']) {
+        needs['multiple_rabbit']++;
+        score -= needs['req_boostRabbit'];
+        needs['req_boostRabbit'] *= 10;
         document.getElementById("boostRabbitButton").innerHTML = `
-        ${req_boostRabbit}
+        ${needs['req_boostRabbit']}
         <img class="coinIcon" src="images/coin.png" alt="">
         `;
     }
@@ -87,7 +84,7 @@ function boostsPressed() {
         </p>
         <div class="boostBtnContainer">
             <button class="button" id="boostClickButton" onclick="boostClickPressed()" disabled>
-                ${req_clickVal}
+                ${needs['req_clickVal']}
                 <img class="coinIcon" src="images/coin.png" alt="">
             </button>
         </div>
@@ -102,7 +99,7 @@ function boostsPressed() {
         </p>
         <div class="boostBtnContainer">
             <button class="button" id="boostRabbitButton" onclick="boostRabbitPressed()" disabled>
-                ${req_boostRabbit}
+                ${needs['req_boostRabbit']}
                 <img class="coinIcon" src="images/coin.png" alt="">
             </button>
         </div>
