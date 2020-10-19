@@ -40,6 +40,11 @@ hr {
     background-color: var(--color-bg);
 }
 
+#left > * {
+    margin: 0;
+    padding: 0;
+}
+
 #title {
     height: 20%;
     display: flex;
@@ -57,11 +62,19 @@ hr {
 }
 
 #scoreContainer {
-    height: 20%;
+    height: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: xx-large;
+}
+
+#gainPerSecond {
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
 }
 
 #btnContainer {

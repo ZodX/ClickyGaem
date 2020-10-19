@@ -1,4 +1,5 @@
 var score = 100000;
+var gain_per_sec = 0;
 
 var needs = {'click_val': 1, 'req_clickVal': 5000,
             'rabbitCount': 0, 'req_rabbit': 20, 'req_boostRabbit': 20000, 'multiple_rabbit': 1,
@@ -40,9 +41,13 @@ window.setInterval(function(){
         document.getElementById("boostClickButton").disabled = false;
     }
 
-    score += parseInt(parseInt(needs['rabbitCount']) * needs['multiple_rabbit']);
-    score += parseInt(parseInt(needs['dogCount']) * needs['multiple_dog']);
-    document.getElementById("score").innerHTML = score;  
+    rabbit_gain = parseInt(parseInt(needs['rabbitCount']) * needs['multiple_rabbit'])
+    score += rabbit_gain;
+    dog_gain = parseInt(parseInt(needs['dogCount']) * needs['multiple_dog']);
+    score += dog_gain;
+    gain_per_sec = rabbit_gain + dog_gain;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("gainPerSecond").innerHTML = "(" + gain_per_sec + " poop per second)";
 }, 1000);
 
 function pressed() {
