@@ -1,7 +1,8 @@
-var score = 19998;
+var score = 100000;
 
 var needs = {'click_val': 1, 'req_clickVal': 5000,
-            'rabbitCount': 0, 'req_rabbit': 20, 'req_boostRabbit': 20000, 'multiple_rabbit': 1}
+            'rabbitCount': 0, 'req_rabbit': 20, 'req_boostRabbit': 20000, 'multiple_rabbit': 1,
+            'dogCount': 0, 'req_dog': 100, 'req_boostDog': 50000, 'multiple_dog': 4}
 
 window.setInterval(function(){
     if (score < needs['req_rabbit']) {
@@ -11,11 +12,25 @@ window.setInterval(function(){
         document.getElementById("rabbitButton").disabled = false;
     }
 
+    if (score < needs['req_dog']) {
+        document.getElementById("dogButton").disabled = true;
+    }
+    else {
+        document.getElementById("dogButton").disabled = false;
+    }
+
     if (score < needs['req_boostRabbit']) {
         document.getElementById("boostRabbitButton").disabled = true;
     }
     else {
         document.getElementById("boostRabbitButton").disabled = false;
+    }
+
+    if (score < needs['req_boostDog']) {
+        document.getElementById("boostDogButton").disabled = true;
+    }
+    else {
+        document.getElementById("boostDogButton").disabled = false;
     }
 
     if (score < needs['req_clickVal']) {
@@ -26,6 +41,7 @@ window.setInterval(function(){
     }
 
     score += parseInt(parseInt(needs['rabbitCount']) * needs['multiple_rabbit']);
+    score += parseInt(parseInt(needs['dogCount']) * needs['multiple_dog']);
     document.getElementById("score").innerHTML = score;  
 }, 1000);
 
@@ -41,11 +57,25 @@ function rabbitPressed() {
         <img class="elementIcon" src="images/rabbit.png" alt="Rabbit" style="color: rgb(155, 83, 35)">
         `;
         score -= needs['req_rabbit'];
-        req_rabbit = Math.round(needs['req_rabbit'] * 1.12);
+        needs['req_rabbit'] = Math.round(needs['req_rabbit'] * 1.12);
         document.getElementById("rabbitButton").innerHTML = `
         ${needs['req_rabbit']}
         <img class="coinIcon" src="images/coin.png" alt="">
         `;
+    }
+}
+
+function dogPressed() {
+    if (score >= needs['req_dog']) {
+        document.getElementById("dogCount").innerHTML = ++needs['dogCount'];
+        document.getElementById("dogElements").innerHTML += `
+        <img class="elementIcon" src="images/dog.png" alt="Dog" style="color: rgb(155, 83, 35)">
+        `;
+        score -= needs['req_dog'];
+        needs['req_dog'] = Math.round(needs['req_dog'] * 1.12);
+        document.getElementById("dogButton").innerHTML = `
+        ${needs['req_dog']}
+        <img class="coinIcon" src="images/coin.png" alt="">`;
     }
 }
 
@@ -63,11 +93,23 @@ function boostClickPressed() {
 
 function boostRabbitPressed() {
     if (score >= needs['req_boostRabbit']) {
-        needs['multiple_rabbit']++;
+        needs['multiple_rabbit'] *= 2;
         score -= needs['req_boostRabbit'];
         needs['req_boostRabbit'] *= 10;
         document.getElementById("boostRabbitButton").innerHTML = `
         ${needs['req_boostRabbit']}
+        <img class="coinIcon" src="images/coin.png" alt="">
+        `;
+    }
+}
+
+function boostDogPressed() {
+    if (score >= needs['req_boostDog']) {
+        needs['multiple_dog'] *= 2;
+        score -= needs['req_boostDog'];
+        needs['req_boostDog'] *= 10;
+        document.getElementById("boostDogButton").innerHTML = `
+        ${needs['req_boostDog']}
         <img class="coinIcon" src="images/coin.png" alt="">
         `;
     }
@@ -100,6 +142,21 @@ function boostsPressed() {
         <div class="boostBtnContainer">
             <button class="button" id="boostRabbitButton" onclick="boostRabbitPressed()" disabled>
                 ${needs['req_boostRabbit']}
+                <img class="coinIcon" src="images/coin.png" alt="">
+            </button>
+        </div>
+    </div>
+    <hr>
+    <div class="boostRecord">
+        <div class="boostImgContainer">
+            <img src="images/dog.png" alt="">
+        </div>
+        <p class="boostDescription">
+            Increase the score gained by dogs. (X2)
+        </p>
+        <div class="boostBtnContainer">
+            <button class="button" id="boostDogButton" onclick="boostDogPressed()" disabled>
+                ${needs['req_boostDog']}
                 <img class="coinIcon" src="images/coin.png" alt="">
             </button>
         </div>
